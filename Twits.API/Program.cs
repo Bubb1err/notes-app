@@ -34,7 +34,7 @@ namespace Twits.API
             builder.Services.AddIdentity<LocalUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
-            builder.Services.AddScoped<INotesRepository, NotesRepository>();
+            
             var tokenValidationParametres = new TokenValidationParameters()
             {
                 ValidateIssuerSigningKey = true,
@@ -49,6 +49,8 @@ namespace Twits.API
                 ValidateLifetime = true,
                 ClockSkew = TimeSpan.Zero
             };
+            builder.Services.AddScoped<INotesRepository, NotesRepository>();
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
             builder.Services.AddSingleton(tokenValidationParametres);
             builder.Services.AddAutoMapper(typeof(MappingConfig));
 

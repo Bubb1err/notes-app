@@ -21,6 +21,12 @@ namespace Twits.API
                 m => m.MapFrom(a => a.CreationDate))
                 .ForMember(x => x.Updated,
                 m => m.MapFrom(a => a.LastModifiedDate)).ReverseMap();
+            //CreateMap<NoteCreateVM, Note>()
+            //    .ForMember(x => x.Title, 
+            //    m => m.MapFrom(a => a.Title))
+            //    .ForMember(x => x.Content, 
+            //    m => m.MapFrom(a => a.Content))
+            //    .ForMember()
         }
     }
 }
